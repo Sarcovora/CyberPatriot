@@ -7,10 +7,10 @@ def execOut(cmd):
 
 	o, e = proc.communicate()
 
-	# print('Output: ' + o.decode('ascii'))
-	# print('Error: '  + e.decode('ascii'))
-	# print('code: ' + str(proc.returncode))
-	return (o.decode('ascii'), e.decode('ascii'), str(proc.returncode))
+	print('Output: ' + o.decode('ascii'))
+	print('Error: '  + e.decode('ascii'))
+	print('code: ' + str(proc.returncode))
+	# return (o.decode('ascii'), e.decode('ascii'), str(proc.returncode))
 
 def execall(cmd):
 	call(cmd, shell=True)
@@ -18,7 +18,8 @@ def execall(cmd):
 def main():
 	#check for root privileges
 	print("Checking for root privileges...")
-	print(execOut('echo $UID'))
+	# print(execOut('echo $UID'))
+	execOut('echo $UID')
 	# if (execOut('echo $UID')[0] != '0'):
 	# 	print("You need to run this script as root!")
 	# 	exit(1)
