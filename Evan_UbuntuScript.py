@@ -18,9 +18,10 @@ def execall(cmd):
 def main():
 	#check for root privileges
 	print("Checking for root privileges...")
-	if (execOut('[ "$UID" -eq 0 ] && echo "Root" || echo "Not Root"')[0] == "Not Root"):
+	if (execOut('echo $UID')[0] != '0'):
 		print("You need to run this script as root!")
 		exit(1)
+	pass
 
 main()
 # if [ $UID != '0' ]
