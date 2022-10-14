@@ -16,7 +16,8 @@ def exec(cmd):
 
 def main():
 	#check for root privileges
-	pass
+	execOut('whoami')
+	exec('echo "Hello World"')
 
 main()
 # if [ $UID != '0' ]
