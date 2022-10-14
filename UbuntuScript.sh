@@ -20,8 +20,8 @@ fi
 fi
 fi
 
-
-
+# install firewall
+ufw enable
 
 # other stuff
 
@@ -29,9 +29,6 @@ fi
 # apt-get update -y
 # apt-get upgrade -y
 
-# #install firewall
-# ufw enable
-# apt-get install gufw -y
 
 # #install ssh
 # apt-get install openssh-server -y
