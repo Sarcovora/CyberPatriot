@@ -7,17 +7,20 @@ def execOut(cmd):
 
 	o, e = proc.communicate()
 
-	print('Output: ' + o.decode('ascii'))
-	print('Error: '  + e.decode('ascii'))
-	print('code: ' + str(proc.returncode))
+	# print('Output: ' + o.decode('ascii'))
+	# print('Error: '  + e.decode('ascii'))
+	# print('code: ' + str(proc.returncode))
+	return (o.decode('ascii'), e.decode('ascii'), str(proc.returncode))
 
-def exec(cmd):
+def execall(cmd):
 	call(cmd, shell=True)
 
 def main():
 	#check for root privileges
-	execOut('whoami')
-	exec('echo "Hello World"')
+	print("Checking for root privileges...")
+	if (execOut('[ "$UID" -eq 0 ] && echo "Root" || echo "Not Root"')[0] == "Not Root"):
+		print("You need to run this script as root!")
+		exit(1)
 
 main()
 # if [ $UID != '0' ]
